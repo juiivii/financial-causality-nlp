@@ -1,10 +1,10 @@
-# 📈 Financial News Causality Detection using FinBERT
+# Financial News Causality Detection using FinBERT
 
 A multi-phase NLP research project that detects **causal relationships** in financial news articles and predicts their impact on stock market movements — using transformer-based models, classical ML baselines, and interpretability tools.
 
 ---
 
-## 🧠 Project Overview
+## Project Overview
 
 This project investigates whether financial news headlines/articles contain causal language that predicts future stock returns or volatility. It builds a pipeline from raw data collection to explainable model predictions.
 
@@ -12,7 +12,7 @@ This project investigates whether financial news headlines/articles contain caus
 
 ---
 
-## 🗂️ Project Phases
+## Project Phases
 
 | Phase | Notebook | Description |
 |-------|----------|-------------|
@@ -24,7 +24,7 @@ This project investigates whether financial news headlines/articles contain caus
 
 ---
 
-## 🏗️ Repository Structure
+## Repository Structure
 
 ```
 financial-causality-nlp/
@@ -48,7 +48,7 @@ financial-causality-nlp/
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 - **Language Models:** [FinBERT (ProsusAI)](https://huggingface.co/ProsusAI/finbert) via HuggingFace Transformers
 - **Deep Learning:** PyTorch, AdamW optimizer, cosine/linear LR schedulers
@@ -59,7 +59,7 @@ financial-causality-nlp/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### 1. Clone the Repository
 
@@ -77,22 +77,23 @@ pip install -r requirements.txt
 ### 3. Data Setup
 
 - **Phase 1** auto-downloads the dataset via HuggingFace.
-- **Phase 2–4** require `final_financial_causality_dataset.csv` — place it in the `data/` folder.
-- **Phase 5** expects files in Google Drive at `My Drive/NLP_Phase5/`.
+- **Phases 2–5** require the causality dataset — [download it here](https://drive.google.com/file/d/1tZ5svzIBHzB6EyE5QW_lbedDSDADiFmv/view?usp=sharing) and place it in the `data/` folder.
+- **Phase 5** expects the dataset and trained model in Google Drive at `My Drive/NLP_Phase5/`.
 
 ### 4. Run Notebooks in Order
 
 Open notebooks inside the `notebooks/` folder and run them sequentially:
 
 ```
-PHASE_1 → PHASE_2 → PHASE_3 → PHASE_4 → PHASE_5
+PHASE_1 -> PHASE_2 -> PHASE_3 -> PHASE_4 -> PHASE_5
 ```
 
-> 💡 **Tip:** Phases 3 and 5 are GPU-intensive. Run them on Kaggle or Google Colab for best performance.
+> **Tip:** Phases 3 and 5 are GPU-intensive. Run them on Kaggle or Google Colab for best performance.
+> **Note:** Models are not pre-provided — they are trained and saved automatically as you run through the phases.
 
 ---
 
-## 📊 Key Features
+## Key Features
 
 - **Leakage-free labeling** — future returns computed via temporal shifting to prevent data leakage
 - **Class imbalance handling** — Effective Number Sampling weights + `WeightedRandomSampler`
@@ -103,7 +104,7 @@ PHASE_1 → PHASE_2 → PHASE_3 → PHASE_4 → PHASE_5
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 See `requirements.txt` for the full list. Key packages:
 
@@ -122,26 +123,29 @@ seaborn
 
 ---
 
-## 📁 Data
+## Data
 
 | Dataset | Source | Usage |
 |---------|--------|-------|
 | Financial News Articles | HuggingFace (`ashraq/financial-news-articles`) | Phase 1 EDA |
-| Financial Causality Dataset | Custom / Kaggle | Phases 2–5 |
+| Financial Causality Dataset | [Download from Google Drive](https://drive.google.com/file/d/1tZ5svzIBHzB6EyE5QW_lbedDSDADiFmv/view?usp=sharing) | Phases 2–5 |
 
-> ⚠️ The labeled causality dataset is not included in this repo due to size. See Phase 1 notebook for dataset construction steps.
-
----
-
-## 📌 Notes
-
-- Set `DATA_PATH` in each notebook to point to your local or Kaggle dataset path.
-- Model checkpoints saved as `.pkl.zip` can be large — use Git LFS or store them in Google Drive.
-- For Kaggle runs, datasets should be added as Kaggle input datasets.
+**Setup:**
+1. Download the dataset from the link above
+2. Place the CSV file inside the `data/` folder
+3. Update `DATA_PATH` in each notebook to point to `data/<filename>.csv`
 
 ---
 
-## 🙌 Acknowledgements
+## Notes
+
+- Models are **not included** — run the notebooks sequentially and they will be trained and saved automatically.
+- For Kaggle runs, upload the dataset as a Kaggle input dataset.
+- Phase 5 expects the trained model and dataset in Google Drive at `My Drive/NLP_Phase5/`.
+
+---
+
+## Acknowledgements
 
 - [ProsusAI/FinBERT](https://huggingface.co/ProsusAI/finbert) for the domain-adapted financial BERT model
 - [HuggingFace Datasets](https://huggingface.co/datasets/ashraq/financial-news-articles) for open financial news data
@@ -149,6 +153,6 @@ seaborn
 
 ---
 
-## 📄 License
+## License
 
 This project is for academic/research purposes. See `LICENSE` for details.
